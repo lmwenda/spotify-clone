@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+import React, { useEffect } from "react";
 import './App.css';
+import { getTokenFromResponse } from "./spotify";
+import Login from "./Components/Login/Login";
 
 function App() {
+  const [ token, setToken ] = React.useState("");
+
+  useEffect(() => {
+    const hash = getTokenFromResponse();
+    window.location.hash = "";
+    const _token = hash.access_token;
+
+    if(_token){
+      setToken(_token);
+    }
+    
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        token ? (
+          <h1>You've Sucessfully Logged In!</h1>
+        ) : (
+          <Login />
+        )
+      }
     </div>
   );
 }
