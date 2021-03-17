@@ -29,6 +29,13 @@ function App() {
           user: user
         });
 
+      spotify.getPlaylist("37i9dQZEVXcJZyENOWUFo7").then((response) =>
+        dispatch({
+          type: "SET_DISCOVER_WEEKLY",
+          discover_weekly: response,
+        })
+      );
+
       spotify.getUserPlaylists().then(playlists => {
         dispatch({
           type: 'SET_PLAYLISTS',
@@ -38,7 +45,7 @@ function App() {
 
       });
     }
-
+    
     console.log("I HAVE A TOKEN", _token);
     console.log("Playlists: ", playlists)
   }, [token, dispatch, playlists]);
