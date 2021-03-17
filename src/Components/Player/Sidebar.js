@@ -5,8 +5,12 @@ import LibraryMusicIcon from "@material-ui/icons/LibraryMusic";
 
 import './Sidebar.css';
 import SidebarOption from './SidebarOption';
+import { useDataLayer } from "../../Data/DataLayer";
 
 function Sidebar() {
+    const [{ playlists }, dispatch] = useDataLayer();
+    console.log("Playlists:", playlists);
+
     return (
         <div className="sidebar">
             <img
@@ -20,6 +24,13 @@ function Sidebar() {
             <br />
             <strong style={{marginRight: '60%'}} className="sidebar_title">PLAYLISTS</strong>
             <hr />
+
+            <div className="sidebar_playlists">
+                {playlists?.items?.map((playlist) => (
+                    <SidebarOption key={"lists"} title={playlist.name} />
+                ))}
+            </div>
+
         </div>
     )
 }

@@ -9,7 +9,7 @@ import Player from "./Components/Player/Player";
 const spotify = new SpotifyWebApi();
 
 function App() {
-  const [{ user, token }, dispatch] = useDataLayer();
+  const [{ user, token, playlists }, dispatch] = useDataLayer();
 
   useEffect(() => {
     const hash = getTokenFromResponse();
@@ -29,11 +29,19 @@ function App() {
           user: user
         });
 
+      spotify.getUserPlaylists().then(playlists => {
+        dispatch({
+          type: 'SET_PLAYLISTS',
+          playlists: playlists
+        });
+      });
+
       });
     }
 
     console.log("I HAVE A TOKEN", _token);
-  }, []);
+    console.log("Playlists: ", playlists)
+  }, [token, dispatch, playlists]);
 
   console.log("User: ", user);
 

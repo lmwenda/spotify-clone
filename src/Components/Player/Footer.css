@@ -4,6 +4,94 @@
     height: 65px;
     width: 100%;
     padding: 20px;
+    display: flex;
     background-color: #202020;
     color: #fff;
+}
+
+.footer .footer_details{
+   flex: 33.3;
+   display: flex;
+   align-items: center;
+}
+
+#title{
+    margin-left: 3px;
+}
+
+.footer .footer_details > p{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 3px;
+ }
+
+.footer .footer_controls{
+    padding: 0 100px;
+    max-width: 300px;
+    align-items: center;
+    margin-top: 10px;
+    justify-content: space-between;
+    flex: 33.3;
+}
+
+.footer__right * .MuiSlider-root {
+    color: green;
+  }
+  .footer__left {
+    display: flex;
+    align-items: center;
+    color: white;
+    width: 300px;
+    flex: 0.3;
+  }
+  
+  .footer__green {
+    color: #1ed15e;
+  }
+  
+  .footer__center {
+    flex: 0.4;
+    max-width: 300px;
+    padding: 0 100px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .footer__icon:hover,
+  .footer__green:hover {
+    transition: transform 0.2s ease-in-out;
+    transform: scale(1.2) !important;
+  }
+  
+  .footer__right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    flex: 0.3;
+  }
+  #slider{
+      width: 85%;
+  }
+
+  .footer_image{
+      height: 80px;
+      align-self: center;
+  }
+  
+  .footer__right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    flex: 0.3;
+  }  
+
+.footer .footer_volume{
+    display: flex;
+    align-items: center;
+    margin: 0;
+    flex: 33.3;
 }

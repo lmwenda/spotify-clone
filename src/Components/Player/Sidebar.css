@@ -8,6 +8,10 @@
     background: black;
 }
 
+.sidebar_playlists{
+    margin-left: 3%;
+}
+
 .sidebar > hr {
     border: 1px solid #282828;
     width: 90%;
